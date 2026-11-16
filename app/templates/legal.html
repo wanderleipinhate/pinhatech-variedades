@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Termos de Uso & Política de Privacidade | {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <div class="border-b border-brand-border pb-6 space-y-2">
+        <h1 class="text-3xl font-black text-white">Termos de Uso e Política de Privacidade</h1>
+        <p class="text-sm text-brand-muted">Última atualização: Janeiro de 2025 • Em total conformidade com a LGPD e o Programa de Afiliados do Mercado Livre</p>
+    </div>
+
+    <div class="space-y-6 text-sm text-brand-muted leading-relaxed">
+        <section class="space-y-2">
+            <h2 class="text-lg font-bold text-white">1. Identificação e Finalidade da Plataforma</h2>
+            <p>
+                A <strong>Pinhatech & Variedades</strong> é uma vitrine digital de curadoria independente especializada em ferramentas, equipamentos eletrônicos e utilidades domésticas. Nosso objetivo é pesquisar, selecionar e indicar aos nossos visitantes as melhores ofertas, cupons e oportunidades de compra disponíveis na plataforma oficial do <strong>Mercado Livre Brasil</strong>.
+            </p>
+        </section>
+
+        <section class="space-y-2">
+            <h2 class="text-lg font-bold text-white">2. Participação no Programa de Afiliados</h2>
+            <p>
+                Informamos de forma transparente e ostensiva que a Pinhatech & Variedades é participante do <strong>Programa de Afiliados do Mercado Livre</strong>. Isso significa que, ao clicar em links externos contidos em nosso site (rotas de redirecionamento <code class="text-brand-orange bg-brand-card px-1.5 py-0.5 rounded">/ir/{slug}</code>), você será direcionado para o site oficial do Mercado Livre (mercadolivre.com.br).
+            </p>
+            <p>
+                Caso você conclua uma compra através desse redirecionamento, nós poderemos receber uma pequena comissão pela indicação. <strong>Isso não acarreta nenhum custo adicional para você</strong>: o preço do produto é exatamente o mesmo (ou até menor com cupons) praticado pelo vendedor no Mercado Livre.
+            </p>
+        </section>
+
+        <section class="space-y-2">
+            <h2 class="text-lg font-bold text-white">3. Segurança, Pagamento e Entrega</h2>
+            <p>
+                A Pinhatech & Variedades <strong>não processa pagamentos</strong>, não armazena dados de cartão de crédito e não realiza despachos físicos diretamente. Toda e qualquer etapa transacional — desde o checkout, pagamento, faturamento, emissão de nota fiscal, envio via Mercado Envios até a garantia de devolução — é de inteira responsabilidade do <strong>Mercado Livre</strong> e de seus respectivos vendedores qualificados.
+            </p>
+        </section>
+
+        <section class="space-y-2">
+            <h2 class="text-lg font-bold text-white">4. Privacidade e Proteção de Dados (LGPD)</h2>
+            <p>
+                Respeitamos integralmente a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). Nosso site não exige cadastro prévio para visualização de ofertas. Coletamos apenas dados técnicos anônimos de navegação (como quantidade de cliques nos produtos) estritamente para aprimorar a seleção das ofertas mais desejadas pelo nosso público.
+            </p>
+        </section>
+
+        <div class="pt-6">
+            <a href="/" class="btn-cta-orange inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>Voltar para a Página Inicial</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

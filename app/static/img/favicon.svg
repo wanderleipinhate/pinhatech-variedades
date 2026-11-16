@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8533" />
+      <stop offset="100%" stop-color="#FF6B00" />
+    </linearGradient>
+  </defs>
+  <!-- Fundo escuro arredondado -->
+  <rect width="64" height="64" rx="14" fill="#1A1A1A" stroke="#2A2A2A" stroke-width="2"/>
+  <!-- Ícone de Engrenagem + Raio -->
+  <path d="M32 14 L37 25 L49 25 L39 33 L43 45 L32 37 L21 45 L25 33 L15 25 L27 25 Z" fill="url(#orangeGrad)" opacity="0.15" />
+  <!-- Raio Elétrico Central -->
+  <polygon points="35,12 21,34 32,34 27,52 45,28 33,28" fill="url(#orangeGrad)" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

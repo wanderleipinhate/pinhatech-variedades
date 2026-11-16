@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ app_name }} | As Melhores Ofertas em Ferramentas e Eletrônicos{% endblock %}</title>
+    
+    <!-- Meta Tags para SEO e Redes Sociais (WhatsApp, Telegram, Facebook) -->
+    <meta name="description" content="Encontre as melhores ferramentas profissionais e eletrônicos com desconto exclusivo e Envio Full pelo Mercado Livre na Pinhatech & Variedades.">
+    <meta name="keywords" content="ferramentas, eletrônicos, parafusadeira, smartwatch, mercado livre, ofertas, promoções, pinhatech">
+    <meta property="og:title" content="{{ app_name }} - Ofertas Verificadas no Mercado Livre">
+    <meta property="og:description" content="Descontos imperdíveis em Ferramentas e Eletrônicos com compra 100% segura no Mercado Livre.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ app_url }}/static/img/logo.svg">
+    <meta name="theme-color" content="#FF6B00">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+    
+    <!-- Tailwind CSS CDN com Configuração Customizada -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0F0F0F',
+                            card: '#1A1A1A',
+                            border: '#2A2A2A',
+                            orange: '#FF6B00',
+                            'orange-hover': '#FF8533',
+                            green: '#10B981',
+                            muted: '#B3B3B3',
+                            white: '#FFFFFF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="/static/css/custom.css">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-brand-black text-white flex flex-col min-h-screen bg-grid-pattern selection:bg-brand-orange selection:text-white">
+
+    <!-- BARRA DE ANÚNCIO SUPERIOR / TELEGRAM VIP -->
+    <aside class="bg-gradient-to-r from-brand-card via-[#24170d] to-brand-card border-b border-brand-orange/30 py-2 px-4 text-xs sm:text-sm text-center">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
+            <span class="flex h-2 w-2 rounded-full bg-brand-orange animate-ping"></span>
+            <span class="text-brand-muted">Entre no nosso grupo vip e receba promoções relâmpago antes de todo mundo:</span>
+            <a href="{{ telegram_url }}" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-orange hover:text-brand-orange-hover underline flex items-center gap-1">
+                <span>Canal VIP no Telegram</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+    </aside>
+
+    <!-- CABEÇALHO / NAVBAR -->
+    <header class="sticky top-0 z-40 bg-brand-black/90 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                
+                <!-- LOGO DA MARCA -->
+                <a href="/" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-11 h-11 rounded-xl bg-brand-card border border-brand-border group-hover:border-brand-orange transition-colors flex items-center justify-center shadow-md">
+                        <i data-lucide="zap" class="w-6 h-6 text-brand-orange stroke-[2.5]"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-wider text-white leading-tight">
+                            PINHA<span class="text-brand-orange">TECH</span>
+                        </span>
+                        <span class="text-[10px] font-bold tracking-[0.25em] text-brand-muted uppercase">
+                            & Variedades
+                        </span>
+                    </div>
+                </a>
+
+                <!-- BARRA DE BUSCA DESKTOP / TABLET -->
+                <div class="hidden md:flex flex-1 max-w-md mx-4">
+                    <form action="/" method="GET" class="w-full relative">
+                        <input 
+                            type="text" 
+                            name="q" 
+                            id="search-input"
+                            value="{{ search_query|default('') }}"
+                            placeholder="Buscar ferramentas, eletrônicos, marcas..."
+                            class="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-2.5 pl-11 text-sm text-white placeholder-brand-muted focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all"
+                        >
+                        <i data-lucide="search" class="w-4 h-4 text-brand-muted absolute left-4 top-3.5"></i>
+                        {% if search_query %}
+                            <a href="/" class="absolute right-3 top-3 text-brand-muted hover:text-white" title="Limpar busca">
+                                <i data-lucide="x" class="w-4 h-4"></i>
+                            </a>
+                        {% endif %}
+                    </form>
+                </div>
+
+                <!-- AÇÕES E BOTÕES DO TOPO -->
+                <div class="flex items-center gap-3">
+                    <!-- Botão Telegram VIP em Destaque -->
+                    <a 
+                        href="{{ telegram_url }}" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="hidden sm:inline-flex items-center gap-2 bg-[#229ED9]/15 hover:bg-[#229ED9]/25 text-[#229ED9] border border-[#229ED9]/30 px-3.5 py-2 rounded-xl text-xs font-bold transition-all"
+                    >
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        <span>Grupo VIP Telegram</span>
+                    </a>
+
+                    <!-- Acesso Admin -->
+                    <a 
+                        href="/admin" 
+                        class="p-2.5 rounded-xl bg-brand-card border border-brand-border text-brand-muted hover:text-white hover:border-brand-orange transition-all" 
+                        title="Painel Administrativo"
+                    >
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- BARRA DE BUSCA MOBILE (Abaixo da logo em celulares) -->
+            <div class="md:hidden pb-3">
+                <form action="/" method="GET" class="w-full relative">
+                    <input 
+                        type="text" 
+                        name="q" 
+                        value="{{ search_query|default('') }}"
+                        placeholder="Buscar por nome, categoria ou modelo..."
+                        class="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-2.5 pl-10 text-sm text-white placeholder-brand-muted focus:outline-none focus:border-brand-orange"
+                    >
+                    <i data-lucide="search" class="w-4 h-4 text-brand-muted absolute left-3.5 top-3"></i>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- RODAPÉ DE CONFIANÇA & COMPLIANCE (PROGRAMA DE AFILIADOS MERCADO LIVRE) -->
+    <footer class="bg-brand-card border-t border-brand-border mt-16 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-brand-border/60">
+                
+                <!-- Coluna 1: Sobre a Marca -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="zap" class="w-6 h-6 text-brand-orange"></i>
+                        <span class="text-lg font-black tracking-wider text-white">
+                            PINHA<span class="text-brand-orange">TECH</span> & VARIEDADES
+                        </span>
+                    </div>
+                    <p class="text-brand-muted text-sm leading-relaxed max-w-md">
+                        Curadoria especializada das melhores ferramentas elétricas, manuais, acessórios e produtos eletrônicos inteligentes disponíveis no Mercado Livre com os menores preços e envio mais rápido do Brasil.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="{{ telegram_url }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-brand-black border border-brand-border hover:border-brand-orange flex items-center justify-center text-brand-muted hover:text-white transition-colors" title="Telegram VIP">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </a>
+                        <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-brand-black border border-brand-border hover:border-brand-orange flex items-center justify-center text-brand-muted hover:text-white transition-colors" title="WhatsApp VIP">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Navegação Rápida -->
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Navegação</h3>
+                    <ul class="space-y-2.5 text-sm text-brand-muted">
+                        <li><a href="/" class="hover:text-brand-orange transition-colors">Todas as Ofertas</a></li>
+                        <li><a href="/?categoria=Ferramentas" class="hover:text-brand-orange transition-colors">Ferramentas</a></li>
+                        <li><a href="/?categoria=Eletrônicos" class="hover:text-brand-orange transition-colors">Eletrônicos</a></li>
+                        <li><a href="/?categoria=Casa+Inteligente" class="hover:text-brand-orange transition-colors">Casa Inteligente</a></li>
+                        <li><a href="/politica-de-privacidade" class="hover:text-brand-orange transition-colors">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Selo de Segurança & Compliance -->
+                <div class="space-y-3">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Segurança & Compra</h3>
+                    <div class="flex items-start gap-2.5 text-xs text-brand-muted">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>
+                        <span>Compra 100% segura processada diretamente no site ou app oficial do Mercado Livre.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-xs text-brand-muted">
+                        <i data-lucide="truck" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>
+                        <span>Entrega rápida com Envio FULL e garantia oficial de devolução grátis em até 30 dias.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AVISO DE COMPLIANCE OBRIGATÓRIO (MERCADO LIVRE AFILIADOS) -->
+            <div class="pt-8 space-y-4 text-center sm:text-left">
+                <div class="p-4 rounded-xl bg-brand-black border border-brand-border text-xs text-brand-muted leading-relaxed">
+                    <p class="font-semibold text-white mb-1 flex items-center gap-1.5 justify-center sm:justify-start">
+                        <i data-lucide="info" class="w-4 h-4 text-brand-orange"></i>
+                        Aviso de Isenção de Responsabilidade e Participação no Programa de Afiliados:
+                    </p>
+                    <p>
+                        A <strong>Pinhatech & Variedades</strong> é uma plataforma independente de curadoria e divulgação de ofertas, participante oficial do <strong>Programa de Afiliados do Mercado Livre</strong>. Ao clicar nos botões de oferta ("Ver Oferta no Mercado Livre"), você será redirecionado para a plataforma oficial do Mercado Livre, onde todas as transações, pagamentos e entregas são realizados com segurança absoluta. Nós podemos receber uma pequena comissão pelas compras qualificadas realizadas através dos nossos links, <strong>sem qualquer custo adicional para o comprador</strong>. Os preços, estoques e condições de parcelamento podem variar conforme a política do vendedor no Mercado Livre.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted/70 gap-2">
+                    <p>© 2025 Pinhatech & Variedades. Todos os direitos reservados.</p>
+                    <p>Desenvolvido para máxima velocidade e conversão.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Base -->
+    <script src="/static/js/main.js"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

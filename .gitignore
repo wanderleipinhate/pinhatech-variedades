@@ -1,0 +1,28 @@
+# Ambientes Virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Banco de Dados SQLite Local
+*.db
+*.sqlite3
+
+# Arquivos de Ambiente (mantenha .env.example no repositório)
+.env
+
+# Logs e Dados Temporários
+*.log
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp

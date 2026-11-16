@@ -1,0 +1,104 @@
+/* ==============================================================
+   ESTILOS PERSONALIZADOS - PINHATECH & VARIEDADES
+   Tema: Dark / Industrial (Preto Profundo + Laranja Vivo)
+   ============================================================== */
+
+:root {
+    --bg-dark: #0F0F0F;
+    --card-dark: #1A1A1A;
+    --card-border: #2A2A2A;
+    --primary-orange: #FF6B00;
+    --primary-orange-hover: #FF8533;
+    --emerald-green: #10B981;
+    --text-white: #FFFFFF;
+    --text-muted: #B3B3B3;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-orange);
+}
+
+/* Cards & Efeitos Industriais */
+.product-card {
+    background-color: var(--card-dark);
+    border: 1px solid var(--card-border);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+    border-color: #404040;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6), 0 0 15px -3px rgba(255, 107, 0, 0.15);
+}
+
+/* Botões com Brilho Industrial Laranja */
+.btn-cta-orange {
+    background-color: var(--primary-orange);
+    color: #FFFFFF;
+    font-weight: 700;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-cta-orange:hover {
+    background-color: var(--primary-orange-hover);
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.45);
+    transform: translateY(-1px);
+}
+
+.btn-cta-orange:active {
+    transform: translateY(0);
+}
+
+/* Badges de Destaque */
+.badge-full {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-discount {
+    background: rgba(255, 107, 0, 0.15);
+    color: #FF6B00;
+    border: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+.badge-highlight {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60A5FA;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Grid de Fundo com Textura Industrial Sutil */
+.bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Toast Notification Flutuante */
+#toast-notification {
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}

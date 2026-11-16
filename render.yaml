@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: pinhatech-variedades
+    runtime: python
+    plan: free
+    region: ohio # ou oregon / frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_NAME
+        value: "Pinhatech & Variedades"
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        value: "sqlite:///./pinhatech.db"
+      - key: ADMIN_USERNAME
+        value: "admin"
+      - key: ADMIN_PASSWORD
+        sync: false # Solicitará preenchimento seguro na interface do Render
+      - key: SECRET_KEY
+        generateValue: true # Render gera uma chave segura automaticamente
+      - key: TELEGRAM_VIP_URL
+        value: "https://t.me/pinhatech_ofertas"
+      - key: WHATSAPP_VIP_URL
+        value: "https://chat.whatsapp.com/exemplo"

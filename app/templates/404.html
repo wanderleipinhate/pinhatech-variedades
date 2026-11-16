@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Oferta Não Encontrada ou Expirada | {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto px-4 py-20 text-center space-y-6">
+    <!-- Ícone de Alerta Industrial -->
+    <div class="w-20 h-20 rounded-2xl bg-brand-card border border-brand-orange/40 flex items-center justify-center mx-auto text-brand-orange shadow-lg shadow-brand-orange/10">
+        <i data-lucide="clock-alert" class="w-10 h-10"></i>
+    </div>
+
+    <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Aviso de Disponibilidade</span>
+        <h1 class="text-3xl sm:text-4xl font-black text-white">Essa oferta pode ter expirado!</h1>
+        <p class="text-brand-muted text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
+            {% if slug %}
+                O link <code class="text-brand-orange bg-brand-card px-2 py-0.5 rounded text-xs font-mono">/ir/{{ slug }}</code> não está mais ativo ou o produto teve seu estoque esgotado no Mercado Livre.
+            {% else %}
+                A página solicitada não foi encontrada ou mudou de endereço.
+            {% endif %}
+        </p>
+    </div>
+
+    <!-- Sugestão de Ações -->
+    <div class="p-6 rounded-2xl bg-brand-card border border-brand-border space-y-4 text-left">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-4 h-4 text-brand-orange"></i>
+            <span>Não perca tempo: novas promoções entram todos os dias!</span>
+        </h3>
+        <p class="text-xs text-brand-muted leading-relaxed">
+            Promoções de ferramentas e eletrônicos no Mercado Livre costumam durar poucas horas. Participe do nosso canal no Telegram para receber alertas instantâneos no seu celular assim que uma oferta nova for ao ar.
+        </p>
+
+        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <a 
+                href="/" 
+                class="btn-cta-orange flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider font-bold flex items-center justify-center gap-2"
+            >
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>Voltar para a Vitrine</span>
+            </a>
+
+            <a 
+                href="{{ telegram_url }}" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="flex-1 py-3 px-4 rounded-xl bg-[#229ED9]/15 hover:bg-[#229ED9]/25 text-[#229ED9] border border-[#229ED9]/30 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all"
+            >
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Canal VIP no Telegram</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
